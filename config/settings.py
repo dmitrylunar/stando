@@ -33,13 +33,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'apps.pages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Свои приложения
+    'apps.accounts',
+    'apps.booking',
+    'apps.core',
+    'apps.pages'
 ]
 
 MIDDLEWARE = [
@@ -76,11 +80,16 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql',
+          'NAME': os.environ.get('DB_NAME'),
+          'USER': os.environ.get('DB_USER'),
+          'PASSWORD': os.environ.get('DB_PASSWORD'),
+          'HOST': os.environ.get('DB_HOST'),
+          'PORT': os.environ.get('DB_PORT')
+      }
+  }
+
 
 
 # Password validation
@@ -118,6 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

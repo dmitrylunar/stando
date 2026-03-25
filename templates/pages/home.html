@@ -1,3 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block content %}<h1>Главная</h1>{% endblock %}
+{% block content %}
+<section class="vh-100 d-flex align-items-center justify-content-center hero" style="background-image: url('{% static "img/background.png" %}'); background-size: cover; background-position: center">
+    <div class="container text-center text-white">
+        <h1>DOMANOV RECORDS</h1>
+        <p>С нами ты начнешь стрелять</p>
+        <a class="btn btn-primary" href="#">Записаться</a>
+    </div>
+</section>
+{% endblock %}
