@@ -5,3 +5,4 @@ class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ['name', 'phone', 'email', 'service', 'datetime', 'comment']
+        widgets = {'datetime': forms.DateTimeInput(attrs={"type": 'datetime-local'})}
