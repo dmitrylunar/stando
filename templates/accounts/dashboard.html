@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Личный кабинет</h1>
+    <p>Аккаунт: </p>
+    <li>Активные записи: {% for order in active %}
+      {{ order.datetime}} {{order.service}} {{order.status }}
+      {% endfor %}</li>
+    <li>Архив: {% for order in archive %}
+      {{ order.datetime}} {{order.service}} {{order.status }}
+      {% endfor %}
+    </li>
+{% endblock %}
