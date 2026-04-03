@@ -53,15 +53,34 @@ body {
     background-color: var(--color-gold);
     border-color: var(--color-gold);
     color: #0a0a0a;
-  }
+}
+
+.btn-primary:active {
+    background-color: var(--color-gold) !important;
+    border-color: var(--color-gold) !important;
+    color: #0a0a0a !important;
+}
 
 h1 {
     font-family: 'Playfair Display', serif;
     color: var(--color-gold);
     letter-spacing: 0.08em;
     font-size: 4rem
-  }
+}
 
 p {
     font-size: 1.5rem;
+}
+
+.form-control {
+    background-color: #1a1a1a;
+    color: var(--color-text);
+    border-color: #333;
+}
+
+.form-control:focus {
+    background-color: #1a1a1a;
+    color: var(--color-text);
+    border-color: var(--color-gold);
+    box-shadow: 0 0 0 0.2rem rgba(242, 180, 39, 0.25);
 }
