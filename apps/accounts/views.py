@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 
 # Create your views here.
-def registration(request):
+def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():

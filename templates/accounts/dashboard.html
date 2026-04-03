@@ -10,4 +10,8 @@
       {{ order.datetime}} {{order.service}} {{order.status }}
       {% endfor %}
     </li>
+    <form method="POST" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Выйти</button>
+    </form>
 {% endblock %}
