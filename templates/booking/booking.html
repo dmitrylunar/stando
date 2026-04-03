@@ -1,9 +1,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post">
+<form method="POST">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Отправить</button>
+    <div class="text-center row justify-content-center mt-5">
+        <div class="col-md-4">
+                <div class="mb-3">
+                    <label for='name'>Имя</label>
+                        <input type="text" name="name" id="id_name" maxlength="100" required="" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="phone">Номер телефона</label>
+                        <input type="text" name="phone" maxlength="20" required="" id="id_phone" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email</label>
+                        <input type="text" name="email" maxlength="100" required="" id="id_email" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="select">Выберете услугу</label>
+                        <select name="service" id="id_service" class="form-control">
+                            <option value="rec" selected="">Запись</option>                                                                                  
+                            <option value="master">Сведение</option>
+                            <option value="instrumental">Аранжировка</option>                                                                                 
+                            <option value="lyrics">Текст</option>
+                        </select>
+                </div>
+                <div class="mb-3">
+                    <label for="datetime">Выберете дату и время</label>
+                        <input type="datetime-local" name="datetime" required="" id="id_datetime" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="comment">Комментарий</label>
+                        <textarea name="comment" cols="40" rows="10" id="id_comment" class="form-control"></textarea>
+                </div> 
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+            </div>  
+        </div>
+    </div>    
 </form>
 {% endblock %}
