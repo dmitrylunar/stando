@@ -1,4 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>Услуги</h1>
+<div class="container mt-4">
+    <h1>Услуги</h1>
+    <div class="row">
+    {% for s in service %}
+        <div class="col-md-4 d-flex">
+            <div class="service-card">
+                <div class="service-overlay">
+                    <h2>{{ s.title }}</h2>
+                    <p>{{ s.description }}</p>
+                    <p>{{ s.price }}</p>
+                    <a href="#" class="btn btn-primary">Примеры работ</a>
+                    <a href="#" class="btn btn-primary">Записаться</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
