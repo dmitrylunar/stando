@@ -58,7 +58,24 @@
           </table>
         </div>
       </div>
-      <div class="col-md-4">Профиль</div>
+      <div class="col-md-4">Профиль
+        {% if request.GET.edit %}
+        <form method="POST">
+          {% csrf_token %}
+          <label for="name">Имя</label>
+            <input type="text" name="name" maxlength="50" required="" id="id_name" class="form-control">
+          <label for="phone">Номер</label>
+            <input type="text" name="phone" max="20" required="" id="id_phone" class="form-control">
+          <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+        {% else %}
+        <p>Имя: {{ form.instance.name }}</p>
+        <p>Телефон: {{ form.instance.phone }}</p>
+        <p>Email: {{ request.user.email }}</p>
+        <p>Скидка: {{ profile.discount }}</p>
+        <a href="?edit=1" class="btn btn-primary">Редактировать</a>
+        {% endif %}
+      </div>
     </div>
     <form method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
