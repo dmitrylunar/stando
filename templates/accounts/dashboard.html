@@ -1,15 +1,65 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Личный кабинет</h1>
-    <p>Аккаунт: </p>
-    <li>Активные записи: {% for order in active %}
-      {{ order.datetime}} {{order.service}} {{order.status }}
-      {% endfor %}</li>
-    <li>Архив: {% for order in archive %}
-      {{ order.datetime}} {{order.service}} {{order.status }}
-      {% endfor %}
-    </li>
+    <div class="d-flex justify-content-between algin-items-center px-4 mt-4">
+      <h3>Личный кабинет</h3>
+      <p>{{ request.user.username }}</p>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="mb-3">
+          <button data-bs-toggle="collapse" data-bs-target="#active-orders" class="btn btn-primary">
+            В работе
+          </button>
+        </div>
+        <div id="active-orders" class="collapse show">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Дата</th>
+                <th>Услуга</th>
+                <th>Статус</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in active %}
+              <tr>
+                <td>{{ order.datetime }}</td>
+                <td>{{ order.service }}</td>
+                <td>{{ order.status }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="mb-3">
+          <button data-bs-toggle="collapse" data-bs-target="#archive-orders" class="btn btn-primary">
+            Архив
+          </button>
+        </div>
+        <div id="archive-orders" class="collapse">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Дата</th>
+                <th>Услуга</th>
+                <th>Статус</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in archive %}
+              <tr>
+                <td>{{ order.datetime }}</td>
+                <td>{{ order.service }}</td>
+                <td>{{ order.status }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-4">Профиль</div>
+    </div>
     <form method="POST" action="{% url 'logout' %}">
         {% csrf_token %}
         <button type="submit" class="btn btn-primary">Выйти</button>

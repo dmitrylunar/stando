@@ -22,6 +22,7 @@
 }
 
 :root {
+    --bs-body-font-family: 'Montserrat', sans-serif;
     --color-bg: #0a0a0a;
     --color-gold: #f2b427;
     --color-text: #e8e8e8;
@@ -83,4 +84,8 @@ p {
     color: var(--color-text);
     border-color: var(--color-gold);
     box-shadow: 0 0 0 0.2rem rgba(242, 180, 39, 0.25);
+}
+
+.table {
+    color: var(--color-text);
 }
